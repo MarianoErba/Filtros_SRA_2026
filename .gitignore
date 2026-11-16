@@ -1,0 +1,33 @@
+# LTspice: archivos temporales (no subir). Los .raw y .log de ltspice/resultados/ SÍ se versionan (datos del informe).
+*.raw
+*.log
+*.op.raw
+*.db
+*.net.bak
+*.asc.bak
+*.plt
+*.fft
+*.tmp
+!ltspice/resultados/*.raw
+!ltspice/resultados/*.log
+ltspice/resultados/*.op.raw
+
+# LaTeX: auxiliares (se versiona el .pdf final del informe)
+informe/*.aux
+informe/*.bbl
+informe/*.blg
+informe/*.fdb_latexmk
+informe/*.fls
+informe/*.out
+informe/*.toc
+informe/*.synctex.gz
+informe/secciones/*.aux
+
+# Python / Jupyter
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+
+# Sistema
+.DS_Store
+Thumbs.db

@@ -1,0 +1,10 @@
+numpy>=2.0
+scipy>=1.14
+sympy>=1.13
+matplotlib>=3.9
+pandas>=2.2
+jupyter
+nbformat
+nbconvert
+schemdraw>=0.19
+spicelib>=1.4
