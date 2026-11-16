@@ -1,0 +1,58 @@
+{
+  "fecha": "2026-11-07",
+  "integrantes_que_midieron": [],
+  "temperatura_ambiente_C": null,
+  "osciloscopio": {
+    "modelo": "Rigol MSO5074",
+    "ancho_de_banda_MHz": null,
+    "precision_vertical_pct": 3.0,
+    "nota_precision": "valor supuesto (conservador); confirmar con la hoja de datos del MSO5074",
+    "puntas": null,
+    "modo": "Bode (generador interno), CH2 = entrada del filtro, CH1 = salida"
+  },
+  "generador": {
+    "modelo": "Rigol DG1022 (generador de funciones); el barrido Bode lo controla el MSO5074",
+    "impedancia_salida_ohm": 50,
+    "amplitud_maxima_Vpp": 20
+  },
+  "barrido_bode": {
+    "amplitud_Vpp": 5.0,
+    "f_inicio_Hz": 10,
+    "f_fin_Hz": 100000
+  },
+  "ensayo_escalon": {
+    "senal": "onda cuadrada",
+    "amplitud_Vpp": 1.0,
+    "frecuencia_Hz": 50,
+    "canales": "CH1 = salida, CH2 = entrada"
+  },
+  "fuente": {
+    "modelo": "OWON ODP3063",
+    "tension_V": [
+      11.97,
+      -11.97
+    ],
+    "limite_corriente_mA": null
+  },
+  "multimetro": {
+    "modelo": "UNI-T UT61D+",
+    "precision_ohm_pct": 1.0,
+    "nota_precision": "valor supuesto (conservador) para resistencia; confirmar en el manual del UT61D+"
+  },
+  "carga_salida": "osciloscopio",
+  "incertidumbre_fase_grados": 1.0,
+  "resistencias_medidas_ohm": {
+    "R0": 20290.0,
+    "R1": 10750.0,
+    "R2": 7300.0,
+    "nota": "medidas como el total de cada par en serie (R0 = R0a + R0b, etc.)"
+  },
+  "capacitores": {
+    "C0": "10 nF, código K (±10 %)",
+    "C1": "47 nF, código K (±10 %)",
+    "C2": "4,7 nF, código K (±10 %)"
+  },
+  "offset_salida_mV": 1.5,
+  "observaciones": "Barrido Bode y escalón con el MSO5074 el 2026-11-07. Datos sin modificar en bode_rigol.csv y escalon_rigol.csv. Alimentación medida ±11,97 V; offset de salida con la entrada a masa: 1,5 mV.",
+  "ensayo_gran_senal": "no realizado: el recorte esperado (entrada ≈ 11 V pico a 936 Hz) supera la salida máxima del generador (20 Vpp = 10 V pico)"
+}

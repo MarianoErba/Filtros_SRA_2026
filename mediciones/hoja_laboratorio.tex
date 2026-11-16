@@ -1,0 +1,55 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}\usepackage[T1]{fontenc}\usepackage{lmodern}
+\usepackage[margin=1.2cm,landscape]{geometry}\usepackage{array,longtable}
+\pagestyle{empty}
+\begin{document}
+\noindent\textbf{TP Integrador SRA 2026 -- Grupo 3 -- Hoja de medici\'on del filtro LP Chebyshev I (TL072CP)}\\[2pt]
+Fecha: \rule{3cm}{0.4pt} \quad Integrantes: \rule{7cm}{0.4pt} \quad Temperatura: \rule{1.5cm}{0.4pt} $^\circ$C
+\quad Alimentaci\'on medida: $+$\rule{1.2cm}{0.4pt} V \; $-$\rule{1.2cm}{0.4pt} V\\[2pt]
+Osciloscopio: \rule{4cm}{0.4pt} \quad Generador: \rule{4cm}{0.4pt} \quad Fuente: \rule{3.5cm}{0.4pt} \quad Mult\'imetro: \rule{3.5cm}{0.4pt}\\[2pt]
+R medidas [$\Omega$]: R0a \rule{1.4cm}{0.4pt} R0b \rule{1.4cm}{0.4pt} R1a \rule{1.4cm}{0.4pt} R1b \rule{1.4cm}{0.4pt}
+R2a \rule{1.4cm}{0.4pt} R2b \rule{1.4cm}{0.4pt} \quad C (c\'odigos): C0 \rule{1.2cm}{0.4pt} C1 \rule{1.2cm}{0.4pt} C2 \rule{1.2cm}{0.4pt}\\[2pt]
+\small CH1 = $v_1$ (borne de entrada, nodo 1), CH2 = $v_o$ (nodo 6). Fase: $\varphi = -360^\circ f\,\Delta t$, $\Delta t>0$ si $v_o$ atrasa. Acoplamiento DC,
+promediado activado, l\'imite de ancho de banda 20 MHz.\\[4pt]
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{|r|c|c|c|c|c|p{2.4cm}|p{2.4cm}|p{2.4cm}|p{3.6cm}|}
+\hline
+$f$ [Hz] & $V_i$ sug. [V$_{\mathrm{rms}}$] & $G$ esp. [dB] & $V_o$ esp. [mV$_{\mathrm{rms}}$] & $\varphi$ esp. [$^\circ$] & $\Delta t$ esp. [$\mu$s] &
+$V_i$ medido & $V_o$ medido & $\Delta t$ medido & Notas (escalas, ruido) \\ \hline
+\endhead
+20 & 1 & 0.00 & 999.9 & -2.1 & 290.9 & & & & \\ \hline
+50 & 1 & -0.01 & 999.3 & -5.2 & 290.8 & & & & \\ \hline
+100 & 1 & -0.02 & 997.2 & -10.4 & 290.3 & & & & \\ \hline
+200 & 1 & -0.09 & 989.8 & -20.8 & 288.6 & & & & \\ \hline
+300 & 1 & -0.17 & 980.1 & -30.9 & 286.3 & & & & \\ \hline
+400 & 1 & -0.25 & 971.4 & -40.9 & 284.0 & & & & \\ \hline
+500 & 1 & -0.30 & 966.5 & -50.8 & 282.4 & & & & \\ \hline
+600 & 1 & -0.28 & 968 & -61.0 & 282.4 & & & & \\ \hline
+700 & 1 & -0.21 & 976.5 & -71.7 & 284.7 & & & & \\ \hline
+800 & 1 & -0.09 & 989.8 & -83.6 & 290.2 & & & & \\ \hline
+850 & 1 & -0.03 & 996.1 & -90.1 & 294.4 & & & & \\ \hline
+900 & 1 & 0.00 & 1000 & -97.0 & 299.5 & & & & \\ \hline
+950 & 1 & -0.01 & 999.1 & -104.5 & 305.6 & & & & \\ \hline
+1000 & 1 & -0.08 & 990.8 & -112.5 & 312.4 & & & & \\ \hline
+1050 & 1 & -0.25 & 972.1 & -120.9 & 319.8 & & & & \\ \hline
+1100 & 1 & -0.53 & 941.1 & -129.6 & 327.2 & & & & \\ \hline
+1150 & 1 & -0.94 & 897.3 & -138.4 & 334.2 & & & & \\ \hline
+1200 & 1 & -1.49 & 842.3 & -147.0 & 340.3 & & & & \\ \hline
+1250 & 1 & -2.16 & 779.4 & -155.3 & 345.1 & & & & \\ \hline
+1300 & 1 & -2.94 & 712.6 & -163.1 & 348.4 & & & & \\ \hline
+1400 & 1 & -4.71 & 581.5 & -176.6 & 350.4 & & & & \\ \hline
+1500 & 1 & -6.60 & 468 & -187.5 & 347.3 & & & & \\ \hline
+1700 & 1 & -10.29 & 305.7 & -203.3 & 332.1 & & & & \\ \hline
+2000 & 1 & -15.18 & 174.2 & -217.7 & 302.3 & & & & \\ \hline
+2500 & 3 & -21.69 & 247 & -230.9 & 256.5 & & & & \\ \hline
+3000 & 3 & -26.82 & 136.8 & -238.5 & 220.8 & & & & \\ \hline
+3500 & 3 & -31.07 & 83.88 & -243.5 & 193.2 & & & & \\ \hline
+4000 & 3 & -34.70 & 55.25 & -247.1 & 171.6 & & & & \\ \hline
+5000 & 3 & -40.68 & 27.74 & -251.9 & 139.9 & & & & \\ \hline
+6000 & 3 & -45.52 & 15.88 & -255.0 & 118.0 & & & & \\ \hline
+8000 & 3 & -53.11 & 6.631 & -258.8 & 89.9 & & & & \\ \hline
+10000 & 3 & -58.97 & 3.379 & -261.1 & 72.5 & & & & \\ \hline
+15000 & 3 & -69.57 & 0.996 & -264.1 & 48.9 & & & & \\ \hline
+20000 & 3 & -77.08 & 0.42 & -265.6 & 36.9 & & & & \\ \hline
+\end{longtable}
+\end{document}

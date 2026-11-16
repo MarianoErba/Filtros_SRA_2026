@@ -1,0 +1,45 @@
+{
+  "fecha": "AAAA-MM-DD",
+  "integrantes_que_midieron": [],
+  "temperatura_ambiente_C": null,
+  "osciloscopio": {
+    "modelo": "",
+    "ancho_de_banda_MHz": null,
+    "precision_vertical_pct": 3.0,
+    "puntas": "x10, 10 MΩ || ~15 pF",
+    "promediado": "p. ej. 16 adquisiciones"
+  },
+  "generador": {
+    "modelo": "",
+    "impedancia_salida_ohm": 50
+  },
+  "fuente": {
+    "modelo": "",
+    "tension_V": [
+      12.0,
+      -12.0
+    ],
+    "limite_corriente_mA": 50
+  },
+  "multimetro": {
+    "modelo": "",
+    "precision_ohm_pct": null
+  },
+  "carga_salida": "osciloscopio (10 MΩ con punta x10)",
+  "incertidumbre_fase_grados": 1.0,
+  "resistencias_medidas_ohm": {
+    "R0a": null,
+    "R0b": null,
+    "R1a": null,
+    "R1b": null,
+    "R2a": null,
+    "R2b": null
+  },
+  "capacitores": {
+    "C0": "10 nF, código/tolerancia: ",
+    "C1": "47 nF, código/tolerancia: ",
+    "C2": "4,7 nF, código/tolerancia: "
+  },
+  "offset_salida_mV": null,
+  "observaciones": ""
+}

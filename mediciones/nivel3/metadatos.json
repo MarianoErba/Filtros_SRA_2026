@@ -1,0 +1,97 @@
+{
+  "descripcion": "Nivel III - ecualizador pasatodo. Valores en ohm y faradios.",
+  "fecha": "",
+  "ao": "TL081",
+  "alimentacion_V": null,
+  "preset_ohm": 10000,
+  "capacitores_medidos_F": {
+    "C1": 4.733e-08,
+    "C2": 4.78e-09
+  },
+  "capacidad_puntas_abiertas_F": null,
+  "resistencias_medidas_ohm": {
+    "R1e": 4791,
+    "R1e_partes": [
+      4673,
+      118
+    ],
+    "R2e": 23970,
+    "R2e_partes": [
+      21990,
+      1980
+    ],
+    "Ra": 9920,
+    "Rbf": 19920,
+    "antes_correccion": {
+      "R1e_partes": [
+        4673,
+        321
+      ],
+      "R2e_partes": [
+        21990,
+        3278
+      ]
+    },
+    "primera_correccion": {
+      "R1e_partes": [
+        4673,
+        217.8
+      ],
+      "R2e_partes": [
+        21990,
+        3796
+      ]
+    }
+  },
+  "instrumentos": {
+    "osciloscopio": "Rigol MSO5074",
+    "generador": "Rigol DG1022",
+    "multimetro": "UNI-T UT61D+",
+    "fuente": "OWON ODP3063"
+  },
+  "bode_ecualizador": {
+    "archivo": "bode_ecualizador.csv",
+    "amplitud_Vpp": 5,
+    "f_inicio_Hz": 10,
+    "f_fin_Hz": 100000
+  },
+  "bode_cascada": {
+    "archivo": "bode_cascada.csv",
+    "amplitud_Vpp": 5,
+    "f_inicio_Hz": 10,
+    "f_fin_Hz": 100000
+  },
+  "observaciones": "C medidos con UNI-T UT61D+ (exactitud ±(3 % + 5 dígitos)). Preset multivuelta de 10 kΩ. Montaje inicial (calculado con una estimación preliminar del filtro): R1e = 4,7 kΩ + 330 Ω (medidas 4,673 kΩ y 321 Ω); R2e = 22 kΩ + 3,3 kΩ (medidas 21,99 kΩ y 3,278 kΩ); Rb fija = 20 kΩ (medida 19,92 kΩ). Sintonía: primera corrección 321 Ω → 217,8 Ω y 3,278 kΩ → 3,796 kΩ; segunda corrección (final), calculada con la medición del filtro de esta sesión: 118 Ω y 1,98 kΩ. Todas las mediciones de la sesión con puntas ×10 y calibración de canales. Una medición del ecualizador se descartó por ruido de conexión (sintonia/bode_ecualizador_descartado.csv).",
+  "rb_mas_preset_ohm": {
+    "antes_del_ajuste": null,
+    "despues_del_ajuste": null
+  },
+  "cociente_100Hz_final": null,
+  "frecuencia_fase_menos180_Hz": null,
+  "offset_salida_mV": {
+    "nodo6": null,
+    "nodo9": null
+  },
+  "bode_calibracion": {
+    "archivo": "bode_calibracion.csv",
+    "amplitud_Vpp": 5,
+    "f_inicio_Hz": 10,
+    "f_fin_Hz": 100000
+  },
+  "bode_filtro": {
+    "archivo": "bode_filtro.csv",
+    "amplitud_Vpp": 5,
+    "f_inicio_Hz": 10,
+    "f_fin_Hz": 100000
+  },
+  "escalon_cascada": {
+    "archivo": "escalon_cascada.csv",
+    "senal": "cuadrada 50 Hz, 2 Vpp",
+    "canales": "CH1 entrada, CH2 nodo 6, CH3 nodo 9"
+  },
+  "fechas": {
+    "calibracion_y_paso_A": "2026-11-08",
+    "paso_B": "2026-11-09",
+    "paso_C_final": "2026-11-09"
+  }
+}

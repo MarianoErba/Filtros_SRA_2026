@@ -1,0 +1,10 @@
+Ref.,Valor,Tol.,Tipo,Función / observación
+"U1, U2",TL072CP (DIP-8),—,AO doble JFET (TI),Etapas 1 y 2; alternativa: 2 × TL081
+R0,20 kΩ + 560 Ω,1 %,Película metálica,"Polo real; 20,56 kΩ (ideal 20,54 kΩ, con Rs = 50 Ω)"
+C0,10 nF,a confirmar,Film (poliéster/MKT) o C0G,Polo real
+R1,"7,5 kΩ + 3,3 kΩ",1 %,Película metálica,"Sallen–Key, entrada; 10,8 kΩ (ideal 10,81 kΩ)"
+R2,"6,8 kΩ + 560 Ω",1 %,Película metálica,"Sallen–Key; 7,36 kΩ (ideal 7,365 kΩ)"
+C1,47 nF,a confirmar,Film (poliéster/MKT),Sallen–Key (realimentación)
+C2,"4,7 nF",a confirmar,Film (poliéster/MKT) o C0G,Sallen–Key (a masa)
+Cd1–Cd2,100 nF,—,Cerámico,"Desacople, junto a pines 8 y 4"
+Cd3–Cd4,10 µF / 25 V,—,Electrolítico,Desacople por riel

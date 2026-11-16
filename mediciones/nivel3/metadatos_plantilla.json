@@ -1,0 +1,64 @@
+{
+  "descripcion": "Nivel III - ecualizador pasatodo. Copiar como metadatos.json y completar. Valores en ohm y faradios.",
+  "fecha": "",
+  "ao": "TL081",
+  "alimentacion_V": null,
+  "preset_ohm": 10000,
+  "capacitores_medidos_F": {
+    "C1": null,
+    "C2": null
+  },
+  "capacidad_puntas_abiertas_F": null,
+  "resistencias_medidas_ohm": {
+    "R1e": null,
+    "R2e": null,
+    "Ra": null,
+    "Rbf": null
+  },
+  "instrumentos": {
+    "osciloscopio": "Rigol MSO5074",
+    "generador": "Rigol DG1022",
+    "multimetro": "UNI-T UT61D+",
+    "fuente": "OWON ODP3063"
+  },
+  "bode_ecualizador": {
+    "archivo": "bode_ecualizador.csv",
+    "amplitud_Vpp": 5,
+    "f_inicio_Hz": 10,
+    "f_fin_Hz": 100000
+  },
+  "bode_cascada": {
+    "archivo": "bode_cascada.csv",
+    "amplitud_Vpp": 5,
+    "f_inicio_Hz": 10,
+    "f_fin_Hz": 100000
+  },
+  "observaciones": "",
+  "rb_mas_preset_ohm": {
+    "antes_del_ajuste": null,
+    "despues_del_ajuste": null
+  },
+  "cociente_100Hz_final": null,
+  "frecuencia_fase_menos180_Hz": null,
+  "offset_salida_mV": {
+    "nodo6": null,
+    "nodo9": null
+  },
+  "bode_calibracion": {
+    "archivo": "bode_calibracion.csv",
+    "amplitud_Vpp": 5,
+    "f_inicio_Hz": 10,
+    "f_fin_Hz": 100000
+  },
+  "bode_filtro": {
+    "archivo": "bode_filtro.csv",
+    "amplitud_Vpp": 5,
+    "f_inicio_Hz": 10,
+    "f_fin_Hz": 100000
+  },
+  "escalon_cascada": {
+    "archivo": "escalon_cascada.csv",
+    "senal": "cuadrada 50 Hz, 2 Vpp",
+    "canales": "CH1 entrada, CH2 nodo 6, CH3 nodo 9"
+  }
+}
