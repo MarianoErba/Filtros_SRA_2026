@@ -1,0 +1,64 @@
+\section{Conclusiones}
+\label{sec:conclusiones}
+
+\paragraph{Elección del filtro.} De los cuatro diseños que cumplen la plantilla, se implementó el pasabajos Chebyshev~I de orden~3. Es una función
+todo polos, de orden impar y $Q$ moderado, que se realiza con una red RC con seguidor y un Sallen--Key de ganancia unitaria en un solo TL072, y tiene
+casi \qty{18}{\decibel} de margen a \qty{4}{\kilo\hertz}. Su desventaja, el retardo de grupo variable cerca del borde de paso, se trató en el
+Nivel~III.
+
+\paragraph{El margen de diseño fue la decisión clave.} La función de la plantilla tiene exactamente \qty{1}{\decibel} de rizado, y con componentes
+reales solo cumpliría alrededor del \qty{\vRendSinMargen}{\percent} de los filtros construidos. Sintetizar en cambio una función con
+\qty{\vApD}{\decibel} de rizado y borde en \qty{\vFpD}{\hertz} cambia la atenuación a \qty{4}{\kilo\hertz}, que sobraba, por tolerancia en la banda
+de paso, que faltaba. El prototipo lo confirma: sus capacitores se apartan hasta un \qty{10}{\percent} del nominal y aun así su atenuación máxima en
+la banda de paso es de \qr{2}{\mApMaxMed}{\decibel}. Con los mismos desvíos, el filtro sin margen tendría \qr{2}{\mApSinMargen}{\decibel} y no
+cumpliría la plantilla.
+
+\paragraph{El prototipo cumple la plantilla y el modelo lo explica.} La atenuación a \qty{4}{\kilo\hertz} es de \qr{1}{\mAcuatrokMed}{\decibel},
+con \qty{11}{\decibel} de margen sobre los \qty{24}{\decibel} exigidos. El modelo ajustado a la ganancia y la fase medidas describe la medición
+dentro de la incertidumbre ($\chi^2_\nu = \nr{2}{\mChiCuadRed}$). Los capacitores estimados a partir de ese ajuste, junto con las resistencias
+medidas y las sensibilidades de la \cref{sec:sensibilidad}, predicen una variación de la ganancia a \qty{1}{\kilo\hertz} de
+\qr{2}{\mDGunokPred}{\decibel}; la medida es de \qr{2}{\mDGunokMed}{\decibel}. Como anticipaba el análisis de sensibilidad, los capacitores, y no
+las resistencias ni el AO, determinan cuánto se aparta el filtro real del nominal.
+
+\paragraph{Cadena de validación.} Cada etapa se contrastó con la anterior y todas coincidieron dentro de su incertidumbre: la derivación simbólica
+con SymPy, el circuito ideal en LTspice (diferencia menor que \qty{1e-4}{\decibel}), el modelo del TL072 (cuyo único efecto apreciable en la
+banda de interés es el GBW finito) y la medición. Las discrepancias que aparecieron tuvieron causas identificables y documentadas: la compresión de
+formas de onda de LTspice en la respuesta al escalón, la fuga del Sallen--Key de ganancia unitaria por encima de \qty{40}{\kilo\hertz} y el piso
+de medición del osciloscopio en la banda de rechazo lejana.
+
+\paragraph{Nivel~II.} El Monte Carlo de \nNRun{} corridas distintas por escenario en LTspice estima un rendimiento del \qty{\nRendLtDos}{\percent}
+con los componentes usados, en acuerdo con Python (\qty{\nRendPyDos}{\percent}) y con la predicción por sensibilidades
+(\qty{\nRendLinDos}{\percent}). Con tolerancias de hasta \qty{10}{\percent}, el filtro se comporta de forma prácticamente lineal y la fórmula de
+propagación de sensibilidades basta para estimar la dispersión, aunque no la forma de la distribución. Todas las fallas se deben al rizado, por
+el desvío de los capacitores: con capacitores de \qty{\pm 5}{\percent} cumple el \qty{100}{\percent} de los circuitos, mientras que mejorar las
+resistencias aporta poco.
+
+\paragraph{Nivel~III.} Un pasatodo de 2.º orden con un solo AO, diseñado para el prototipo y no para el filtro nominal, redujo la variación del
+retardo de grupo en la banda de paso de \qr{4}{\eMJFil}{\milli\second} a \qr{4}{\eMJCas}{\milli\second}: una mejora de \num{\eMMejora} veces,
+con un intervalo del \qty{90}{\percent} de \numrange{\eMMejoraInf}{\eMMejoraSup}. La métrica sin modelo lo confirma: el desvío máximo de la fase
+respecto de la fase lineal bajó de \qr{1}{\eMFilDevMax}{\degree} a \qr{1}{\eMCasDevMax}{\degree}. En la respuesta a la onda cuadrada, la
+deformación pasa de concentrarse después del flanco a repartirse a ambos lados, como corresponde a un sistema de fase casi lineal. El precio es un
+retardo constante adicional de medio milisegundo y una ganancia $k = \num{\eMApK}$; el error de pasatodo remanente es un valle de
+\qr{1}{\eMApValle}{\decibel} en $f_0$, con el que la cascada sigue dentro de la plantilla en la banda de paso. La lección principal del nivel es práctica: el óptimo exige $f_0$ y $Q$ con errores de décimas de por ciento, y los
+capacitores solo se conocían al \qty{4}{\percent}. El ecualizador alcanzó la mejora porque se sintonizó midiendo: el preset fija la magnitud sin
+mover $f_0$ ni $Q$, y la resistencia menor de cada par corrige $f_0$ y $Q$ a partir de los capacitores efectivos deducidos de la medición. La
+simulación con los capacitores leídos con el multímetro da una mejora mucho menor, lo que muestra que esa sintonía no se puede reemplazar con
+cálculo.
+
+\paragraph{Limitaciones y trabajo futuro.}
+\begin{itemize}
+  \item \textbf{Capacitores.} Sin medidor LCR, sus valores reales se estimaron en forma indirecta. Un medidor LCR permitiría verificar esas
+        estimaciones y calcular el ecualizador sin iteraciones. Para una producción, capacitores de \qty{\pm 5}{\percent} eliminarían prácticamente las
+        fallas sin cambiar la topología.
+  \item \textbf{Banda de rechazo lejana.} Por encima de unos \qty{4.5}{\kilo\hertz} la medición queda limitada por el piso del instrumento. Medirla
+        requiere más amplitud de entrada, promediado o un analizador con más rango dinámico.
+  \item \textbf{Gran señal.} El ensayo de recorte no pudo hacerse con la amplitud máxima del generador; puede completarse bajando la alimentación.
+  \item \textbf{Ganancia del ecualizador.} La cascada tiene \qr{1}{\eLTEcGananciaDb}{\decibel} de ganancia. Si hiciera falta ganancia unitaria, se
+        puede agregar una etapa no inversora o redistribuir la ganancia en el filtro.
+  \item \textbf{Respuesta a la onda cuadrada.} La captura final no se tomó en modo de alta resolución, lo que limita la incertidumbre del
+        sobrepico a uno o dos puntos porcentuales.
+\end{itemize}
+
+En síntesis, el filtro construido cumple la plantilla con margen, y cada resultado medido se explica con el diseño, la sensibilidad y la
+simulación. Los dos niveles optativos agregan la cuantificación estadística del rendimiento y una mejora medida de más de diez veces en la
+linealidad de fase. Todo el trabajo es reproducible desde los notebooks, los netlists y los datos del repositorio.

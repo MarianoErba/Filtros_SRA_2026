@@ -1,0 +1,22 @@
+\section{Introducción y objetivos}
+\label{sec:introduccion}
+
+El objetivo del trabajo es recorrer el ciclo completo de diseño de un filtro analógico activo: desde la función de transferencia
+ideal que satisface una plantilla de atenuación hasta un prototipo medido en el laboratorio, contrastando en cada paso el modelo
+matemático, el modelo circuital y el comportamiento real~\cite{guia2026}. Al grupo~3 le corresponden los tipos \emph{pasabajos}
+(LP) y \emph{rechazabanda} (BS), estudiados con las aproximaciones de \emph{Chebyshev~I} y \emph{elíptica} (Cauer).
+
+El alcance se organiza en tres niveles:
+\begin{itemize}
+  \item \textbf{Nivel~I (obligatorio).} Cuatro diseños matemáticos (2~tipos $\times$ 2~aproximaciones) con su comparación;
+        elección, síntesis y análisis simbólico de un único filtro; selección de componentes y del amplificador operacional (AO);
+        sensibilidades; validación en LTspice; construcción y medición del prototipo.
+  \item \textbf{Nivel~II (optativo).} Análisis estadístico de tolerancias (Monte Carlo) del filtro construido y comparación
+        con la predicción lineal basada en sensibilidades.
+  \item \textbf{Nivel~III (optativo).} Diseño, simulación, construcción y medición de un ecualizador de fase (pasatodo) que
+        reduzca la variación del retardo de grupo del filtro elegido.
+\end{itemize}
+
+La metodología de síntesis sigue la de la cátedra~\cite{apuntes2026}, basada en Daryanani~\cite{daryanani1976}:
+aproximación, descomposición en cascada de secciones de primer y segundo orden, realización con topologías de un solo AO
+mediante igualación de coeficientes y escaleo de impedancia y frecuencia, y evaluación de sensibilidades.

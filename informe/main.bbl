@@ -1,0 +1,95 @@
+\begin{thebibliography}{10}
+  \providebibliographyfont{name}{}%
+  \providebibliographyfont{lastname}{}%
+  \providebibliographyfont{title}{\emph}%
+  \providebibliographyfont{jtitle}{\btxtitlefont}%
+  \providebibliographyfont{etal}{\emph}%
+  \providebibliographyfont{journal}{}%
+  \providebibliographyfont{volume}{}%
+  \providebibliographyfont{ISBN}{\MakeUppercase}%
+  \providebibliographyfont{ISSN}{\MakeUppercase}%
+  \providebibliographyfont{url}{\url}%
+  \providebibliographyfont{numeral}{}%
+  \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
+
+\btxselectlanguage {spanish}
+\bibitem {guia2026}
+\btxnamefont {\btxlastnamefont {{Cátedra de Síntesis de Redes
+  Activas}}}\btxauthorcolon\ \btxtitlefont {\btxifchangecase {Trabajo práctico
+  integrador de laboratorio: diseño, simulación e implementación de filtros
+  analógicos activos. guía para estudiantes, versión 1.1}{Trabajo Práctico
+  Integrador de Laboratorio: diseño, simulación e implementación de filtros
+  analógicos activos. Guía para estudiantes, versión 1.1}}.
+\newblock Material de cátedra, 2026.
+
+\bibitem {apuntes2026}
+\btxnamefont {\btxlastnamefont {{Cátedra de Síntesis de Redes
+  Activas}}}\btxauthorcolon\ \btxtitlefont {\btxifchangecase {Filtros activos:
+  teoría de la aproximación, sensibilidad, topologías bicuadráticas y
+  técnicas de ajuste. apuntes de clase teórica}{Filtros activos: teoría de
+  la aproximación, sensibilidad, topologías bicuadráticas y técnicas de
+  ajuste. Apuntes de clase teórica}}.
+\newblock Material de cátedra, 2026.
+
+\btxselectlanguage {english}
+\bibitem {daryanani1976}
+\btxnamefont {\btxlastnamefont {Daryanani}, Gobind}\btxauthorcolon\
+  \btxtitlefont {Principles of Active Network Synthesis and Design}.
+\newblock \btxpublisherfont {John Wiley \& Sons}, New York, 1976.
+
+\bibitem {virtanen2020}
+\btxnamefont {\btxlastnamefont {Virtanen}, Pauli} \btxetalfont {\btxetalshort
+  {.}}\btxauthorcolon\ \btxjtitlefont {\btxifchangecase {{SciPy} 1.0:
+  Fundamental algorithms for scientific computing in {Python}}{{SciPy} 1.0:
+  Fundamental Algorithms for Scientific Computing in {Python}}}.
+\newblock \btxjournalfont {Nature Methods}, 17:261--272, 2020.
+
+\bibitem {meurer2017}
+\btxnamefont {\btxlastnamefont {Meurer}, Aaron} \btxetalfont {\btxetalshort
+  {.}}\btxauthorcolon\ \btxjtitlefont {\btxifchangecase {{SymPy}: symbolic
+  computing in {Python}}{{SymPy}: symbolic computing in {Python}}}.
+\newblock \btxjournalfont {PeerJ Computer Science}, 3:e103, 2017.
+
+\btxselectlanguage {spanish}
+\bibitem {ltspice}
+\btxnamefont {\btxlastnamefont {{Analog Devices}}}\btxauthorcolon\
+  \btxtitlefont {\btxifchangecase {{LTspice} --- simulador {SPICE}}{{LTspice}
+  --- simulador {SPICE}}}.
+\newblock
+  \url{https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html},
+  2026.
+
+\btxselectlanguage {english}
+\bibitem {harris2020}
+\btxnamefont {\btxlastnamefont {Harris}, Charles\btxfnamespacelong R.}
+  \btxetalfont {\btxetalshort {.}}\btxauthorcolon\ \btxjtitlefont
+  {\btxifchangecase {Array programming with {NumPy}}{Array programming with
+  {NumPy}}}.
+\newblock \btxjournalfont {Nature}, 585:357--362, 2020.
+
+\bibitem {hunter2007}
+\btxnamefont {\btxlastnamefont {Hunter}, John\btxfnamespacelong
+  D.}\btxauthorcolon\ \btxjtitlefont {\btxifchangecase {Matplotlib: A {2D}
+  graphics environment}{Matplotlib: A {2D} Graphics Environment}}.
+\newblock \btxjournalfont {Computing in Science \& Engineering}, 9(3):90--95,
+  2007.
+
+\bibitem {ti_tl07x}
+\btxnamefont {\btxlastnamefont {{Texas Instruments}}}\btxauthorcolon\
+  \btxtitlefont {{TL07xx} Low-Noise {FET}-Input Operational Amplifiers}.
+\newblock {\latintext \btxurlfont{https://www.ti.com/product/TL072}}, Hoja de
+  datos SLOS080.
+
+\bibitem {ti_lm358}
+\btxnamefont {\btxlastnamefont {{Texas Instruments}}}\btxauthorcolon\
+  \btxtitlefont {{LMx58-N} / {LM358} Low-Power, Dual-Operational Amplifiers}.
+\newblock {\latintext \btxurlfont{https://www.ti.com/product/LM358}}, Hoja de
+  datos.
+
+\bibitem {st_tl072}
+\btxnamefont {\btxlastnamefont {{STMicroelectronics}}}\btxauthorcolon\
+  \btxtitlefont {{TL072, TL072A, TL072B} Low noise {JFET} dual operational
+  amplifiers}.
+\newblock Hoja de datos DocID2298.
+
+\end{thebibliography}

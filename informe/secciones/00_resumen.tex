@@ -1,0 +1,22 @@
+\begin{abstract}
+\noindent
+Este informe documenta el diseño, la síntesis, la simulación y la implementación de un filtro analógico activo a partir de
+especificaciones de atenuación. Se estudian matemáticamente dos tipos de filtro (pasabajos y rechazabanda) con dos aproximaciones
+(Chebyshev~I y elíptica): se obtiene, en cada caso, el orden mínimo, los polos, los ceros, la ganancia y la descomposición en
+secciones de primer y segundo orden, y se verifica el cumplimiento de las especificaciones en toda la banda de paso y de rechazo.
+La comparación de magnitud, fase, retardo de grupo y respuesta al escalón fundamenta la elección del filtro a implementar:
+un pasabajos Chebyshev~I de orden~3 ($f_p = \qty{1}{\kilo\hertz}$, $A_p = \qty{1}{\decibel}$), que cumple con \qty{17.9}{\decibel}
+de margen sobre la atenuación exigida a \qty{4}{\kilo\hertz} y se realiza en cascada con una sección de primer orden y una
+bicuadrática. Como esa función tiene exactamente \qty{1}{\decibel} de rizado, un Monte Carlo sobre el circuito muestra que solo el
+\qty{\vRendSinMargen}{\percent} de los filtros construidos cumpliría la plantilla; por eso se sintetiza una función de diseño Chebyshev~I de orden~3
+con \qty{\vApD}{\decibel} de rizado y borde en \qty{\vFpD}{\hertz}, que eleva el rendimiento estimado a más del \qty{98}{\percent}. La realización
+usa una red RC con seguidor y un Sallen--Key de ganancia unitaria (TL072CP), cuya transferencia se deriva simbólicamente con SymPy, con los
+capacitores disponibles en el laboratorio y resistencias E24 al \qty{1}{\percent}. El prototipo medido cumple la plantilla, con
+\IfFileExists{\resdir/valores_nb04.tex}{\qr{2}{\mApMaxMed}{\decibel} de atenuación máxima en la banda de paso y \qr{1}{\mAcuatrokMed}{\decibel} a
+\qty{4}{\kilo\hertz}}{}. En el Nivel~II, un Monte Carlo de \nNRun{} corridas por escenario en LTspice, contrastado con Python y con la predicción
+por sensibilidades, estima que con los componentes usados cumple la plantilla el \qty{\nRendLtDos}{\percent} de los filtros, y el
+\qty{100}{\percent} con capacitores de \qty{\pm 5}{\percent}. En el Nivel~III, un ecualizador pasatodo de 2.º orden con un solo AO, diseñado para
+el prototipo y sintonizado a partir de su medición\IfFileExists{\resdir/valores_nb06.tex}{, reduce \num{\eMMejora} veces la variación del retardo
+de grupo en la banda de paso (de \qr{3}{\eMJFil}{\milli\second} a \qr{4}{\eMJCas}{\milli\second})}{}. El trabajo es reproducible a partir de los notebooks de Python,
+los archivos de LTspice y los datos del repositorio del grupo.
+\end{abstract}
