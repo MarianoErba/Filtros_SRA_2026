@@ -1,0 +1,30 @@
+* Filtro (prototipo) + ecualizador - analisis AC
+* TP Integrador SRA 2026 - Grupo 3 - Nivel III: ecualizador de fase pasatodo
+* Generado por el notebook 06. AO: macromodelo TI TL072 (SLOJ067); el montaje usa un TL081 (misma familia)
+V1 1 0 AC 1
+* Filtro del prototipo: R medidas y C estimados de su medicion (notebook 04); entrada en el nodo 1 (V6/V1, como el Bode)
+R0 1 2 20.29k
+C0 2 0 9.97438n
+R1 3 4 10.75k
+R2 4 5 7.3k
+C1 4 6 42.3093n
+C2 5 0 4.95338n
+XU1 2 3 vcc vee 3 TL072
+XU2 5 6 vcc vee 6 TL072
+* Ecualizador pasatodo de 2.o orden (un AO): nodos 7 = A, 8 = entrada inversora, 9 = salida, 10 = entrada no inversora
+R1ea 6 71 4.673k
+R1eb 71 7 118
+C1e 7 8 47.33n
+C2e 7 9 4.78n
+R2ea 8 81 21.99k
+R2eb 81 9 1.98k
+Ra 6 10 9.92k
+Rbf 10 102 19.92k
+Rpreset 102 0 2.61922k   ; preset en la posicion de magnitud plana (de 0 a 10k)
+XU3 10 8 vcc vee 9 TL072
+.lib TL072.301
+VCC vcc 0 12
+VEE vee 0 -12
+.ac dec 100 10 100k
+.save V(1) V(6) V(9)
+.end

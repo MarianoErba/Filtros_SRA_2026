@@ -1,0 +1,40 @@
+* Filtro - TL072 (modelo TI) - Monte Carlo AC - escenario E3: R +-1 %, C +-5 %
+* TP Integrador SRA 2026 - Grupo 3 - LP Chebyshev I, orden 3 - Nivel II
+* Generado por el notebook 05. Nodos: 1 gen., 2 U1+, 3 sal. U1, 4 nodo SK, 5 U2+, 6 salida
+* mc(x,t): uniforme en [x(1-t), x(1+t)]; nuevo sorteo por elemento y por paso
+.param tolR=0.01 tolC=0.05
+.step param run 1 500 1
+V1 in 0 AC 1
+Rs in 1 50
+R0a 1 11 {mc(20k,tolR)}
+R0b 11 2 {mc(560,tolR)}
+R1a 3 31 {mc(7.5k,tolR)}
+R1b 31 4 {mc(3.3k,tolR)}
+R2a 4 41 {mc(6.8k,tolR)}
+R2b 41 5 {mc(560,tolR)}
+C0 2 0 {mc(10n,tolC)}
+C1 4 6 {mc(47n,tolC)}
+C2 5 0 {mc(4.7n,tolC)}
+* Sondas del generador aleatorio (desacopladas del filtro): V(pr) y V(pc) = numero sorteado
+Ipr 0 pr AC 1
+Rpr pr 0 {mc(1,tolR)}
+Ipc 0 pc AC 1
+Rpc pc 0 {mc(1,tolC)}
+* Modelo TI TL072 (PSpice, SLOJ067). Nodos: IN+ IN- V+ V- OUT
+.lib TL072.301
+VCC vcc 0 12
+VEE vee 0 -12
+XU1 2 3 vcc vee 3 TL072
+XU2 5 6 vcc vee 6 TL072
+.ac dec 50 10 100k
+.save V(6) V(pr) V(pc)
+.meas AC Amax MAX mag(V(6)) FROM 10 TO 1k
+.meas AC Amin MIN mag(V(6)) FROM 10 TO 1k
+.meas AC A1k FIND mag(V(6)) AT 1k
+.meas AC A4k FIND mag(V(6)) AT 4k
+.meas AC Asb MAX mag(V(6)) FROM 4k TO 100k
+.meas AC f3dB WHEN mag(V(6))=0.70795 FALL=1
+.meas AC uR FIND mag(V(pr)) AT 1k
+.meas AC uC FIND mag(V(pc)) AT 1k
+.options plotwinsize=0   ; sin compresion de formas de onda
+.end

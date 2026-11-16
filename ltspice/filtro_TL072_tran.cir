@@ -1,0 +1,35 @@
+* Filtro - TL072 - senoidal 1 Vrms a 200 Hz, 1 kHz y 4 kHz
+* TP Integrador SRA 2026 - Grupo 3 - LP Chebyshev I, orden 3
+* RC + seguidor (U1) y Sallen-Key k=1 (U2)
+* Generado por el notebook 03 desde resultados/componentes.json
+* Nodos: 1 gen., 2 U1+, 3 sal. U1, 4 nodo SK, 5 U2+, 6 salida
+.param Rs=50 C0=10n C1=47n C2=4.7n R0a=20k
+.param R0b=560 R1a=7.5k R1b=3.3k R2a=6.8k R2b=560
+V1 in 0 SINE(0 {Vp} {fin})
+Rs in 1 {Rs}
+R0a 1 11 {R0a}
+R0b 11 2 {R0b}
+C0 2 0 {C0}
+R1a 3 31 {R1a}
+R1b 31 4 {R1b}
+R2a 4 41 {R2a}
+R2b 41 5 {R2b}
+C1 4 6 {C1}
+C2 5 0 {C2}
+* Modelo TI TL072 (PSpice, SLOJ067). Nodos: IN+ IN- V+ V- OUT
+.lib TL072.301
+VCC vcc 0 12
+VEE vee 0 -12
+XU1 2 3 vcc vee 3 TL072
+XU2 5 6 vcc vee 6 TL072
+.param fin=1k Vp=1.41421
+.step param fin list 200 1k 4k
+.tran 0 30m 0 2u
+.meas TRAN Vin_pp PP V(in) FROM 20m TO 30m
+.meas TRAN Vout_pp PP V(6) FROM 20m TO 30m
+.meas TRAN Ganancia PARAM Vout_pp/Vin_pp
+.meas TRAN Vmax_U1 MAX V(3)
+.meas TRAN Vmax_U2 MAX V(6)
+.save V(in) V(2) V(3) V(4) V(6)
+.options plotwinsize=0   ; sin compresion de formas de onda (todos los puntos en el .raw)
+.end

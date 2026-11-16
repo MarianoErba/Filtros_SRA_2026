@@ -1,0 +1,76 @@
+LTspice 24.1.10 for Windows
+Circuit: C:\Users\maria\Desktop\Filtros_SRA_2026_etapa3\Filtros_SRA_2026\ltspice\filtro_TL072_tran.cir
+Start Time: Sat Nov  7 13:21:30 2026
+Options: plotwinsize=0
+solver = Normal
+Maximum thread count: 12
+tnom = 27
+temp = 27
+method = trap
+Early termination of direct N-R iteration.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+vernier = 0.5
+vernier = 0.25
+vernier = 0.125
+Gmin = 5.5165
+vernier = 0.0625
+vernier = 0.03125
+vernier = 0.015625
+vernier = 0.0078125
+Gmin = 5.49501
+vernier = 0.00390625
+vernier = 0.00195312
+vernier = 0.000976562
+vernier = 0.000488281
+Gmin = 5.50104
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 93.9394%
+Source stepping succeeded in finding the operating point.
+
+.step fin=200
+.step fin=1000
+.step fin=4000
+Total elapsed time: 0.892 seconds.
+
+Files loaded:
+C:\Users\maria\Desktop\Filtros_SRA_2026_etapa3\Filtros_SRA_2026\ltspice\filtro_TL072_tran.cir
+C:\Users\maria\Desktop\Filtros_SRA_2026_etapa3\Filtros_SRA_2026\ltspice\TL072.301
+
+
+Measurement: vin_pp
+  step	PP(V(in))	FROM	TO
+     1	2.82841920853	0.02	0.03
+     2	2.82839846611	0.02	0.03
+     3	2.82801663876	0.02	0.03
+
+Measurement: vout_pp
+  step	PP(V(6))	FROM	TO
+     1	2.79910445213	0.02	0.03
+     2	2.79952609539	0.02	0.03
+     3	0.0518418252468	0.02	0.03
+
+Measurement: ganancia
+  step	Vout_pp/Vin_pp
+     1	0.989635639475
+     2	0.989791972006
+     3	0.0183315135195
+
+Measurement: vmax_u1
+  step	MAX(V(3))	FROM	TO
+     1	1.36930584908	0	0.03
+     2	0.968554973602	0	0.03
+     3	0.418448925018	0	0.03
+
+Measurement: vmax_u2
+  step	MAX(V(6))	FROM	TO
+     1	1.39957237244	0	0.03
+     2	1.39994299412	0	0.03
+     3	0.197998896241	0	0.03

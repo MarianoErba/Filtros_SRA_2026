@@ -1,0 +1,33 @@
+* Diagnostico del generador mc() de LTspice - mismos elementos, nombres y orden que filtro_TL072_mc_E2.cir (5000 corridas)
+* TP Integrador SRA 2026 - Grupo 3 - Nivel II. Generado por el notebook 05.
+* Resistencias: fuente de 1 A -> |V(pX)| = R.  Capacitores: fuente de 1 V a 1 kHz -> |I(VX)| = 2*pi*1k*C
+.param tolR=0.01 tolC=0.1
+.step param run 1 5000 1
+V1 in 0 AC 1
+Rs in 0 50
+R0a pR0a 0 {mc(20k,tolR)}
+R0b pR0b 0 {mc(560,tolR)}
+R1a pR1a 0 {mc(7.5k,tolR)}
+R1b pR1b 0 {mc(3.3k,tolR)}
+R2a pR2a 0 {mc(6.8k,tolR)}
+R2b pR2b 0 {mc(560,tolR)}
+C0 pC0 0 {mc(10n,tolC)}
+C1 pC1 0 {mc(47n,tolC)}
+C2 pC2 0 {mc(4.7n,tolC)}
+Ipr 0 pr AC 1
+Rpr pr 0 {mc(1,tolR)}
+Ipc 0 pc AC 1
+Rpc pc 0 {mc(1,tolC)}
+IR0a 0 pR0a AC 1
+IR0b 0 pR0b AC 1
+IR1a 0 pR1a AC 1
+IR1b 0 pR1b AC 1
+IR2a 0 pR2a AC 1
+IR2b 0 pR2b AC 1
+VC0 pC0 0 AC 1
+VC1 pC1 0 AC 1
+VC2 pC2 0 AC 1
+* Un unico punto de frecuencia: con .step, LTspice guarda en el .raw un punto por corrida (eje = run).
+* Los valores se leen del .raw (notebook 05); .meas FIND ... AT no funciona con un solo punto.
+.ac lin 1 1k 1k
+.end

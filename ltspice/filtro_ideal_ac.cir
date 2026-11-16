@@ -1,0 +1,30 @@
+* Filtro - AO ideal - analisis AC
+* TP Integrador SRA 2026 - Grupo 3 - LP Chebyshev I, orden 3
+* RC + seguidor (U1) y Sallen-Key k=1 (U2)
+* Generado por el notebook 03 desde resultados/componentes.json
+* Nodos: 1 gen., 2 U1+, 3 sal. U1, 4 nodo SK, 5 U2+, 6 salida
+.param Rs=50 C0=10n C1=47n C2=4.7n R0a=20k
+.param R0b=560 R1a=7.5k R1b=3.3k R2a=6.8k R2b=560
+V1 in 0 AC 1
+Rs in 1 {Rs}
+R0a 1 11 {R0a}
+R0b 11 2 {R0b}
+C0 2 0 {C0}
+R1a 3 31 {R1a}
+R1b 31 4 {R1b}
+R2a 4 41 {R2a}
+R2b 41 5 {R2b}
+C1 4 6 {C1}
+C2 5 0 {C2}
+* AO ideal: VCVS de ganancia 1e6 (seguidores)
+E1 3 0 2 3 1e6
+E2 6 0 5 6 1e6
+.ac dec 200 10 100k
+.meas AC Amax MAX mag(V(6)) FROM 10 TO 1k
+.meas AC Amin MIN mag(V(6)) FROM 10 TO 1k
+.meas AC A1k FIND mag(V(6)) AT 1k
+.meas AC A4k FIND mag(V(6)) AT 4k
+.meas AC f3dB WHEN mag(V(6))=0.70795 FALL=1
+.meas AC N4max MAX mag(V(4))
+.options plotwinsize=0   ; sin compresion de formas de onda (todos los puntos en el .raw)
+.end

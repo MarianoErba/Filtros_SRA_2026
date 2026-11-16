@@ -1,0 +1,20 @@
+LTspice 24.1.10 for Windows
+Circuit: C:\Users\maria\Desktop\Filtros_SRA_2026_etapa3\Filtros_SRA_2026\ltspice\filtro_ideal_ac.cir
+Start Time: Sat Nov  7 13:10:07 2026
+solver = Normal
+Maximum thread count: 12
+tnom = 27
+temp = 27
+method = trap
+.OP point found by inspection.
+Total elapsed time: 0.056 seconds.
+
+Files loaded:
+C:\Users\maria\Desktop\Filtros_SRA_2026_etapa3\Filtros_SRA_2026\ltspice\filtro_ideal_ac.cir
+
+amax: MAX(mag(V(6)))=(-0.000268388460769dB,0°) FROM 10 TO 1000
+amin: MIN(mag(V(6)))=(-0.305257849017dB,0°) FROM 10 TO 1000
+a1k: mag(V(6))=(-0.0939554591143dB,0°) at 1000
+a4k: mag(V(6))=(-34.7142794448dB,0°) at 4000
+f3db: mag(V(6))=0.70795 AT 1302.49499736
+n4max: MAX(mag(V(4)))=(0.163450772379dB,0°) FROM 10 TO 100000

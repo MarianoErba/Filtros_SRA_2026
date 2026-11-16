@@ -1,0 +1,31 @@
+* Filtro - TL072 - respuesta al escalon de 1 V
+* TP Integrador SRA 2026 - Grupo 3 - LP Chebyshev I, orden 3
+* RC + seguidor (U1) y Sallen-Key k=1 (U2)
+* Generado por el notebook 03 desde resultados/componentes.json
+* Nodos: 1 gen., 2 U1+, 3 sal. U1, 4 nodo SK, 5 U2+, 6 salida
+.param Rs=50 C0=10n C1=47n C2=4.7n R0a=20k
+.param R0b=560 R1a=7.5k R1b=3.3k R2a=6.8k R2b=560
+V1 in 0 PULSE(0 1 1m 100n 100n 20m 40m)
+Rs in 1 {Rs}
+R0a 1 11 {R0a}
+R0b 11 2 {R0b}
+C0 2 0 {C0}
+R1a 3 31 {R1a}
+R1b 31 4 {R1b}
+R2a 4 41 {R2a}
+R2b 41 5 {R2b}
+C1 4 6 {C1}
+C2 5 0 {C2}
+* Modelo TI TL072 (PSpice, SLOJ067). Nodos: IN+ IN- V+ V- OUT
+.lib TL072.301
+VCC vcc 0 12
+VEE vee 0 -12
+XU1 2 3 vcc vee 3 TL072
+XU2 5 6 vcc vee 6 TL072
+.tran 0 10m 0 1u
+.meas TRAN Vfinal AVG V(6) FROM 8m TO 10m
+.meas TRAN Vmax MAX V(6) FROM 1m TO 8m
+.meas TRAN Sobrepico PARAM 100*(Vmax-Vfinal)/Vfinal
+.save V(in) V(3) V(6)
+.options plotwinsize=0   ; sin compresion de formas de onda (todos los puntos en el .raw)
+.end

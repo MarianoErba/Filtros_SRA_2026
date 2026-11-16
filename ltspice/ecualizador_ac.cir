@@ -1,0 +1,24 @@
+* Ecualizador solo - analisis AC
+* TP Integrador SRA 2026 - Grupo 3 - Nivel III: ecualizador de fase pasatodo
+* Generado por el notebook 06. AO: macromodelo TI TL072 (SLOJ067); el montaje usa un TL081 (misma familia)
+V1 6 0 AC 1
+* Ecualizador pasatodo de 2.o orden (un AO): nodos 7 = A, 8 = entrada inversora, 9 = salida, 10 = entrada no inversora
+R1ea 6 71 4.673k
+R1eb 71 7 118
+C1e 7 8 47.33n
+C2e 7 9 4.78n
+R2ea 8 81 21.99k
+R2eb 81 9 1.98k
+Ra 6 10 9.92k
+Rbf 10 102 19.92k
+Rpreset 102 0 2.61922k   ; preset en la posicion de magnitud plana (de 0 a 10k)
+XU3 10 8 vcc vee 9 TL072
+.lib TL072.301
+VCC vcc 0 12
+VEE vee 0 -12
+.ac dec 100 10 100k
+.meas AC Gbaja FIND mag(V(9)) AT 20
+.meas AC Gf0 FIND mag(V(9)) AT 991.5
+.meas AC Gmax MAX mag(V(9)) FROM 10 TO 10k
+.meas AC Gmin MIN mag(V(9)) FROM 10 TO 10k
+.end
